@@ -1,0 +1,19 @@
+@import url("estilo2.css");
+h1 {
+	color:red;
+}
+
+h2 {
+	color: violet;
+}
+
+.titulo-hx{
+	color: turquoise;
+	font-size: 30px;
+}
+
+#unico{
+	color: red;
+	font-size: 10px;
+}
+
