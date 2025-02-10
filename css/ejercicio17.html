@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de object-fill</title>
+    <style>
+        .contenedor {
+            width: 400px; /* Ancho del contenedor */
+            height: 400px; /* Altura del contenedor */
+            border: 2px solid #333;
+            overflow: hidden; /* Oculta cualquier contenido que desborde */
+            margin: 20px;
+        }
+        .imagen-fill {
+            width: 100%; /* Ancho completo del contenedor */
+            height: 100%; /* Altura completa del contenedor */
+            object-fit: cover; /* Cambia este valor para probar otros efectos */
+
+            /*cover: La imagen se escalará para cubrir completamente el contenedor, manteniendo su relación de aspecto, pero puede que se recorte.
+            contain: La imagen se escalará para caber dentro del contenedor, manteniendo su relación de aspecto, lo que puede dejar espacios vacíos.
+            fill: La imagen se estirará para llenar completamente el contenedor, lo que puede distorsionarla.
+           */
+        }
+         
+    </style>
+</head>
+<body>
+    <h2>Ejemplo de object-fit: cover</h2>
+    <div class="contenedor">
+        <img class="imagen-fill" src="auto.jpeg" alt="Ejemplo de imagen">
+    </div>
+
+    <h2>Ejemplo de object-fit: contain</h2>
+    <div class="contenedor" style="border: 2px dashed #666;">
+        <img class="imagen-fill" style="object-fit: contain;" src="auto.jpeg" alt="Ejemplo de imagen">
+    </div>
+
+    <h2>Ejemplo de object-fit: fill</h2>
+    <div class="contenedor" style="border: 2px dotted #999;">
+        <img class="imagen-fill" style="object-fit: fill;" src="auto.jpeg" alt="Ejemplo de imagen">
+    </div>
+</body>
+</html>
