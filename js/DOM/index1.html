@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>JavaScritp</title>
+	<style>
+		.azul{
+			color: blue;
+			font-size: 18px;
+		}
+	</style>
+</head>
+<body>
+	<h1>Manejo DOM Document Object Model </h1>
+	<h1 id='cabecera' >Ejemplo DOM Javascript</h1>
+
+	<p>parrafo 1</p>
+	<p>parrafo 2</p>
+	<p>parrafo 3</p>
+
+	<p class="azul">parrafo 4</p>
+	<p class="azul">parrafo 5</p>
+	
+
+	<script>
+		let nombre = "Pepe";
+		alert("Mi nombre es :" + nombre);
+		console.log(nombre);
+
+		let cabecera = document.getElementById('cabecera').innerHTML;
+		console.log(cabecera);
+
+		document.getElementById('cabecera').innerHTML ="Este es otro Contenido 1"
+		cabecera = document.getElementById('cabecera');
+        //console.log(cabecera);
+		cabecera.innerHTML = "Este es otro Contenido 2";
+
+		let parrafo = document.getElementsByTagName('p');
+		console.log(`No. párrafo: ${parrafo.length}`);
+		
+		for(let i=0; i<parrafo.length ; i++){
+			//parrafo[i].innerHTML = i + ":XXX" 
+			console.log(parrafo[i].innerHTML)
+			//console.log(`i:${i} - ${parrafo[i].innerHTML}`)
+		}
+
+		let elementos = document.getElementsByClassName("azul");
+		console.log(elementos.length);
+		console.log(elementos[1].innerHTML);
+		
+		for(let i=0; i<elementos.length ; i++){
+			console.log(elementos[i].innerHTML);
+		}
+      
+	    let elementos2 = document.querySelectorAll("p.azul");
+		console.log(`No. elenentos azul: ${elementos2.length}`);
+
+		for(let elemento2 of elementos2){
+			console.log(`FOR TO -> ${elemento2.innerHTML}`);
+		}
+		
+	
+	</script>
+
+</body>
+</html>
