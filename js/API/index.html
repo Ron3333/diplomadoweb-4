@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>API</title>
+
+</head>
+
+	<h1>API Rest Full</h1>
+
+	<div id="api"></div>
+<body>
+
+	<script>
+
+	const apiUrl = 'https://jsonplaceholder.typicode.com/posts?userId=1';
+    async function buscarID(){
+	      const respose =  await fetch(apiUrl);
+	      console.log(respose.status);
+	      const  datos = await respose.json();
+	      //console.log(datos);
+	      let contenedor ="" ;
+	      for(let data of datos){
+	        contenedor +=  `<h3>${data.title} </h3> <p> ${data.body} </p>`;
+	        //console.log(contenedor);
+	      }
+
+	     document.getElementById("api").innerHTML = contenedor;
+  	}
+
+  	buscarID()
+	</script>
+</body>
+</html>
