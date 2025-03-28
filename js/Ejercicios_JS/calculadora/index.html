@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculadora</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" >
+  </head>
+  <style type="text/css">
+    .form-label{
+      font-weight: 700;
+    }
+    .resul{
+      font-weight: 700;
+      font-size:24px ;
+    }
+  </style>
+  <body>
+    <h1 class="text-center mt-5">Calculadora </h1>
+
+    <div class="container ">
+      <div class="row">
+        <div class="col-12">
+          <form id="forma">
+              <div class="mb-3">
+                <label for="operandoA" class="form-label">NUMERO 1:</label>
+                <input type="number" class="form-control" id="operandoA" placeholder="Numero 1">
+              </div>
+              <div class="mb-3">
+                 <label for="operandoB" class="form-label">NUMERO 2:</label>
+                <input type="number" class="form-control" id="operandoB" placeholder="Numero 2">
+              </div>
+              <div class="form-check  form-check-inline mb-5">
+                <input class="form-check-input" type="radio"  value="suma" name="operador" id="suma" checked>
+                <label class="form-check-label" for="suma">
+                  suma
+                </label>
+              </div>
+              <div class="form-check  form-check-inline">
+                <input class="form-check-input" type="radio" value="resta"  name="operador" id="resta" >
+                <label class="form-check-label" for="resta">
+                  resta
+                </label>
+              </div>
+              <div class="form-check  form-check-inline">
+                <input class="form-check-input" type="radio" value="mul"  name="operador" id="mul" >
+                <label class="form-check-label" for="mul">
+                  multiplicación
+                </label>
+              </div>
+              <div class="form-check  form-check-inline">
+                <input class="form-check-input" type="radio" value="div"  name="operador" id="div" >
+                <label class="form-check-label" for="div">
+                  división
+                </label>
+              </div>
+          </form>
+          <button type="submit" class="btn btn-primary mb-3" onclick="sumar()">Calcular</button>
+          <div class="resul mt-2" id="resultado"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="js/app2.js" ></script>
+    <script src="js/bootstrap.bundle.min.js" ></script>
+  </body>
+</html>

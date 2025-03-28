@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina el Número</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        #mensaje {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        #intentos {
+            margin-top: 10px;
+            font-size: 20px;
+        }
+        input[type="number"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 100px;
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        #reiniciar {
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Adivina el Número</h1>
+    <p>He elegido un número entre 1 y 100. ¿Cuál es?</p>
+    <input type="number" id="entrada" max="100" min="1"  placeholder="Tu adivinanza" />
+    <button id="adivinar">Adivinar</button>
+    <div id="mensaje"></div>
+    <div id="intentos"></div>
+    <button id="reiniciar" onclick="reiniciarJuego()">Reiniciar Juego</button>
+
+    <script>
+        let numeroAleatorio;
+        let intentos;
+        
+        function iniciarJuego() {
+            numeroAleatorio = Math.floor(Math.random() * 100) + 1; // Número entre 1 y 100
+            intentos = 0;
+            document.getElementById('mensaje').textContent = '';
+            document.getElementById('intentos').textContent = '';
+            document.getElementById('reiniciar').style.display = 'none';
+            document.getElementById('entrada').value = '';
+        }
+
+        document.getElementById('adivinar').addEventListener('click', function() {
+            const adivinanza = parseInt(document.getElementById('entrada').value);
+            intentos++;
+            
+            if (isNaN(adivinanza)) {
+                document.getElementById('mensaje').textContent = 'Por favor, introduce un número válido.';
+            } else if (adivinanza < 1 || adivinanza > 100) {
+                document.getElementById('mensaje').textContent = 'El número debe estar entre 1 y 100.';
+            } else if (adivinanza < numeroAleatorio) {
+                document.getElementById('mensaje').textContent = 'Demasiado bajo. Intenta de nuevo.';
+            } else if (adivinanza > numeroAleatorio) {
+                document.getElementById('mensaje').textContent = 'Demasiado alto. Intenta de nuevo.';
+            } else {
+                document.getElementById('mensaje').textContent = `¡Felicidades! Adivinaste el número ${numeroAleatorio} en ${intentos} intentos.`;
+                document.getElementById('reiniciar').style.display = 'block';
+            }
+            document.getElementById('intentos').textContent = `Intentos: ${intentos}`;
+            document.getElementById('entrada').value = '';
+        });
+
+        function reiniciarJuego() {
+            iniciarJuego();
+        }
+
+        // Iniciar el juego al cargar la página
+        iniciarJuego();
+    </script>
+
+</body>
+</html>

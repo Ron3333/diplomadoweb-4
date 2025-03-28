@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario con Validación</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h2 class="mb-4">Formulario de Registro</h2>
+    <form id="registroForm" onsubmit="return validarFormulario()">
+      <!-- Campo Nombre -->
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre">
+        <div id="errorNombre" class="text-danger"></div>
+      </div>
+
+      <!-- Campo Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="Ingresa tu email">
+        <div id="errorEmail" class="text-danger"></div>
+      </div>
+
+      <!-- Campo Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña">
+        <div id="errorPassword" class="text-danger"></div>
+      </div>
+
+      <!-- Botón de Envío -->
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
+
+  <!-- Bootstrap JS y dependencias -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+  <!-- Script para validación -->
+  <script>
+    function validarFormulario() {
+      // Obtener valores de los campos
+      const nombre = document.getElementById('nombre').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value.trim();
+
+      // Validar nombre
+      if (nombre === "") {
+        document.getElementById('errorNombre').innerText = "El nombre es obligatorio.";
+        return false;
+      } else {
+        document.getElementById('errorNombre').innerText = "";
+      }
+
+      // Validar email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        document.getElementById('errorEmail').innerText = "Ingresa un email válido.";
+        return false;
+      } else {
+        document.getElementById('errorEmail').innerText = "";
+      }
+
+      // Validar contraseña
+      if (password.length < 6) {
+        document.getElementById('errorPassword').innerText = "La contraseña debe tener al menos 6 caracteres.";
+        return false;
+      } else {
+        document.getElementById('errorPassword').innerText = "";
+      }
+
+      // Si todo está correcto, se envía el formulario
+      alert("Formulario enviado correctamente.");
+      return true;
+    }
+  </script>
+</body>
+</html>

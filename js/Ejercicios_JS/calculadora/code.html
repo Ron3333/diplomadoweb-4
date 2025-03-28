@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculadora</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet" >
+  </head>
+  <style type="text/css">
+    .form-label{
+      font-weight: 700;
+    }
+    .resul{
+      font-weight: 700;
+      font-size:24px ;
+    }
+  </style>
+  <body>
+    <h1 class="text-center mt-5">Calculadora </h1>
+
+    <div class="container ">
+      <div class="row">
+        <div class="col-12">
+          <form id="forma">
+              <div class="mb-3">
+                <label for="operandoA" class="form-label">NUMERO 1:</label>
+                <input type="number" class="form-control" id="operandoA" placeholder="Numero 1">
+              </div>
+              <div class="mb-3">
+                 <label for="operandoB" class="form-label">NUMERO 2:</label>
+                <input type="number" class="form-control" id="operandoB" placeholder="Numero 2">
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio"  value="suma" name="operador" id="suma" checked>
+                <label class="form-check-label" for="suma">
+                  suma
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" value="resta"  name="operador" id="resta" >
+                <label class="form-check-label" for="resta">
+                  resta
+                </label>
+              </div>
+
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                  Default checkbox
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                <label class="form-check-label" for="flexCheckChecked">
+                  Checked checkbox
+                </label>
+              </div>
+
+          </form>
+          <button type="submit" class="btn btn-primary mb-3" onclick="sumar()">SUMAR</button>
+          <div class="resul mt-2" id="resultado"></div>
+        </div>
+      </div>
+    </div>
